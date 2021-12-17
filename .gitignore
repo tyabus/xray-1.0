@@ -2,10 +2,12 @@
 *.rsuser
 *.suo
 *.user
+*.filters
 *.userosscache
 *.sln.docstates
 
 # Build results
+[Mm]ixed/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -20,6 +22,13 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+xr*.dll
+BugTrap*.dll
+BugTrap*.lib
+*.exp
+xr*.lib
+XR_3DA.lib
+XR_3DA.exp
 
 # Visual Studio 2015/17 cache/options directory
 .vs/
@@ -34,6 +43,7 @@ ipch/
 *.opendb
 *.opensdf
 *.sdf
+*.bak
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
