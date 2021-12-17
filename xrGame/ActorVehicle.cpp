@@ -105,12 +105,6 @@ bool CActor::use_Vehicle(CHolderCustom* object)
 		{
 			if( vehicle->Use(Device.vCameraPosition, Device.vCameraDirection,center))
 			{
-				if (pCamBobbing)
-				{
-					Cameras().RemoveCamEffector(eCEBobbing);
-					pCamBobbing = NULL;
-				}
-
 				attach_Vehicle(vehicle);
 			}
 			return true;

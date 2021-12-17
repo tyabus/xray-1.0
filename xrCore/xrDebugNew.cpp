@@ -3,8 +3,6 @@
 
 #include "xrdebug.h"
 
-#include "dxerr9.h"
-
 #pragma warning(push)
 #pragma warning(disable:4995)
 #include <malloc.h>
@@ -16,10 +14,6 @@ extern bool shared_str_initialized;
 #define USE_BUG_TRAP
 #define DEBUG_INVOKE __asm int 3
 static BOOL	bException	= FALSE;
-		
-#ifndef _M_AMD64
-#pragma comment(lib,"dxerr9.lib")
-#endif
 
 #include <dbghelp.h>						// MiniDump flags
 
@@ -274,10 +268,6 @@ LPCSTR xrDebug::error2string	(long code)
 	LPCSTR				result	= 0;
 	static	string1024	desc_storage;
 
-#ifdef _M_AMD64
-#else
-	result				= DXGetErrorDescription9	(code);
-#endif
 	if (0==result) 
 	{
 		FormatMessage	(FORMAT_MESSAGE_FROM_SYSTEM,0,code,0,desc_storage,sizeof(desc_storage)-1,0);

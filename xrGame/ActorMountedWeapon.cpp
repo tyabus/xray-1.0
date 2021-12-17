@@ -26,10 +26,6 @@ bool CActor::use_MountedWeapon(CHolderCustom* object)
 					character_physics_support()->movement()->DestroyCharacter();
 					PickupModeOff();
 					m_holder=wpn;
-					if (pCamBobbing){
-						Cameras().RemoveCamEffector(eCEBobbing);
-						pCamBobbing = NULL;
-					}
 					return true;
 				}
 			}

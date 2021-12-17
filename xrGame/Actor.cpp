@@ -3,7 +3,7 @@
 #include "hudmanager.h"
 #ifdef DEBUG
 #	include "ode_include.h"
-#	include "../StatGraph.h"
+#	include "../xr_3da/StatGraph.h"
 #	include "PHDebug.h"
 #endif // DEBUG
 #include "alife_space.h"
@@ -14,7 +14,6 @@
 #include "CameraLook.h"
 #include "CameraFirstEye.h"
 #include "effectorfall.h"
-#include "EffectorBobbing.h"
 #include "clsid_game.h"
 #include "ActorEffector.h"
 #include "EffectorZoomInertion.h"
@@ -115,7 +114,6 @@ CActor::CActor() : CEntityAlive()
 	vPrevCamDir.set			(0.f,0.f,1.f);
 	fCurAVelocity			= 0.0f;
 	// эффекторы
-	pCamBobbing				= 0;
 	m_pSleepEffector		= NULL;
 	m_pSleepEffectorPP		= NULL;
 
@@ -1079,14 +1077,6 @@ void CActor::shedule_Update	(u32 DT)
 
 
 	inherited::shedule_Update	(DT);
-
-	//эффектор включаемый при ходьбе
-	if (!pCamBobbing)
-	{
-		pCamBobbing = xr_new<CEffectorBobbing>	();
-		Cameras().AddCamEffector			(pCamBobbing);
-	}
-	pCamBobbing->SetState						(mstate_real, conditions().IsLimping(), IsZoomAimingMode());
 
 	//звук тяжелого дыхания при уталости и хромании
 	if(this==Level().CurrentControlEntity() && !g_dedicated_server )

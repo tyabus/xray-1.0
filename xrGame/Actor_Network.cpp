@@ -714,7 +714,6 @@ void CActor::net_Destroy	()
 	xr_delete		(m_sndShockEffector);
 	xr_delete		(pStatGraph);
 	xr_delete		(m_pActorEffector);
-	pCamBobbing		= NULL;
 	
 #ifdef DEBUG	
 	LastPosS.clear();

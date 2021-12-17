@@ -472,7 +472,7 @@ void	CHW::updateWindowProps	(HWND m_hWnd)
 		AdjustWindowRect		(	&m_rcWindowBounds, dwWindowStyle, FALSE );
 
 		SetWindowPos			(	m_hWnd, 
-									HWND_TOP,	
+									0,
 									m_rcWindowBounds.left, 
 									m_rcWindowBounds.top,
 									( m_rcWindowBounds.right - m_rcWindowBounds.left ),

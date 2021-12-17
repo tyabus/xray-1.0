@@ -31,7 +31,6 @@ class ENGINE_API CCameraBase;
 class ENGINE_API CBoneInstance;
 class ENGINE_API CBlend;
 class CWeaponList;
-class CEffectorBobbing;
 class CHolderCustom;
 class CUsableScriptObject;
 
@@ -358,7 +357,6 @@ protected:
 	float					fPrevCamPos;
 	Fvector					vPrevCamDir;
 	float					fCurAVelocity;
-	CEffectorBobbing*		pCamBobbing;
 
 //	void					LoadShootingEffector	(LPCSTR section);
 //	SShootingEffector*		m_pShootingEffector;
