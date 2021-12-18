@@ -4,7 +4,6 @@
 #define _CPU_FEATURE_MMX    0x0001
 #define _CPU_FEATURE_SSE    0x0002
 #define _CPU_FEATURE_SSE2   0x0004
-#define _CPU_FEATURE_3DNOW  0x0008
 
 struct _processor_info {
     string32	v_name;								// vendor name

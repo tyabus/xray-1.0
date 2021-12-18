@@ -29,10 +29,6 @@ int _cpuid (_processor_info *pinfo)
 #define _MMX_FEATURE_BIT			0x00800000
 #define _SSE_FEATURE_BIT			0x02000000
 #define _SSE2_FEATURE_BIT			0x04000000
-
-// This bit is set when cpuid is called with
-// register set to 80000001h (only applicable to AMD)
-#define _3DNOW_FEATURE_BIT			0x80000000
  
 int IsCPUID()
 {
@@ -73,14 +69,6 @@ void _os_support(int feature, int& res)
                 __asm _emit 0x66 __asm _emit 0x0f __asm _emit 0x57 __asm _emit 0xc0
                                         // xorpd xmm0, xmm0
                                         // executing WNI instruction
-            }
-            break;
-        case _CPU_FEATURE_3DNOW:
-            __asm 
-			{
-                __asm _emit 0x0f __asm _emit 0x0f __asm _emit 0xc0 __asm _emit 0x96 
-                                        // pfrcp mm0, mm0
-                                        // executing 3Dnow instruction
             }
             break;
         case _CPU_FEATURE_MMX:
@@ -291,11 +279,6 @@ notamd:
     {
         feature |= _CPU_FEATURE_MMX;
         _os_support(_CPU_FEATURE_MMX,os_support);
-    }
-    if (dwExt & _3DNOW_FEATURE_BIT)
-    {
-        feature |= _CPU_FEATURE_3DNOW;
-        _os_support(_CPU_FEATURE_3DNOW,os_support);
     }
     if (dwFeature & _SSE_FEATURE_BIT)
     {
