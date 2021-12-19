@@ -29,6 +29,7 @@ BugTrap*.lib
 xr*.lib
 XR_3DA.lib
 XR_3DA.exp
+*.log
 
 # Visual Studio 2015/17 cache/options directory
 .vs/
