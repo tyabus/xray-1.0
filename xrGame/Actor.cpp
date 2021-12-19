@@ -838,7 +838,7 @@ void CActor::g_Physics(Fvector& _accel, float jump, float dt)
 		}
 	}
 }
-float g_fov = 67.5f;
+float g_fov = 70.0f;
 
 float CActor::currentFOV()
 {
